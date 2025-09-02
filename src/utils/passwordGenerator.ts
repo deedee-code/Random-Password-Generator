@@ -97,7 +97,6 @@ export function validatePasswordStrength(password: string, strength: PasswordStr
     strength: PasswordStrength;
   };
 } {
-  const charSets = CHARACTER_SETS[strength];
   const minLength = MIN_LENGTHS[strength];
   
   const hasLowercase = /[a-z]/.test(password);

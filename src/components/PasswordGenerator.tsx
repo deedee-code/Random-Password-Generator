@@ -13,7 +13,17 @@ export default function PasswordGenerator({ className = '' }: PasswordGeneratorP
   const [strength, setStrength] = useState<PasswordStrength>('medium');
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
-  const [validation, setValidation] = useState<any>(null);
+  const [validation, setValidation] = useState<{
+    isValid: boolean;
+    details: {
+      hasLowercase: boolean;
+      hasUppercase: boolean;
+      hasNumbers: boolean;
+      hasSymbols: boolean;
+      meetsLength: boolean;
+      strength: PasswordStrength;
+    };
+  } | null>(null);
 
   const minLength = getMinLengthForStrength(strength);
 
