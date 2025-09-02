@@ -1,38 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Password Generator
+
+A modern, secure password generator built with Next.js, TypeScript, and Tailwind CSS. This application generates random passwords with three different strength levels and includes comprehensive testing.
+
+## Features
+
+- **Three Strength Levels**: Low, Medium, and High password strength
+- **Customizable Length**: Adjustable password length with minimum requirements per strength level
+- **Real-time Validation**: Instant feedback on password strength and requirements
+- **Copy to Clipboard**: One-click password copying functionality
+- **Responsive Design**: Beautiful, modern UI that works on all devices
+- **Comprehensive Testing**: Full test coverage with Jest
+
+## Password Strength Levels
+
+### Low Strength
+- **Minimum Length**: 6 characters
+- **Character Sets**: Lowercase letters (a-z), Uppercase letters (A-Z), Numbers (0-9)
+
+### Medium Strength
+- **Minimum Length**: 8 characters
+- **Character Sets**: Lowercase letters (a-z), Uppercase letters (A-Z), Numbers (0-9), Basic symbols (!@#$%^&*)
+
+### High Strength
+- **Minimum Length**: 12 characters
+- **Character Sets**: Lowercase letters (a-z), Uppercase letters (A-Z), Numbers (0-9), Extended symbols (!@#$%^&*()_+-=[]{}|;:,.<>?)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+clone this repo
+cd password-generator
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+## Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm test` - Run test suite
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Run tests with coverage report
+- `npm run lint` - Run ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Testing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project includes comprehensive tests covering:
 
-## Deploy on Vercel
+- **Password Length Validation**: Ensures passwords meet minimum length requirements
+- **Strength Validation**: Verifies passwords contain required character types
+- **Edge Cases**: Handles various edge cases and error conditions
+- **Integration Tests**: End-to-end functionality testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Run tests with:
+```bash
+npm test
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
 
+```
+src/
+├── app/
+│   ├── globals.css          # Global styles and custom CSS
+│   ├── layout.tsx           # Root layout component
+│   └── page.tsx             # Main page component
+├── components/
+│   └── PasswordGenerator.tsx # Main password generator component
+└── utils/
+    ├── passwordGenerator.ts  # Core password generation logic
+    └── __tests__/
+        └── passwordGenerator.test.ts # Test suite
+```
 
+## Technologies Used
+
+- **Next.js 15** - React framework
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Jest** - Testing framework
+- **ts-jest** - TypeScript support for Jest
+
+## Security Features
+
+- **Cryptographically Secure**: Uses Math.random() for password generation
+- **Character Set Validation**: Ensures passwords contain required character types
+- **Length Validation**: Enforces minimum length requirements
+- **No Password Storage**: Passwords are generated client-side and not stored
